@@ -1,4 +1,5 @@
 Fpl::Application.routes.draw do
+  match 'listjson' => 'players#listjson'
   resources :players
 
 
