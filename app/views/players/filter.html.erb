@@ -2,3 +2,37 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+
+<table id="filterGrid">
+  <tr>
+    <td></td>
+  </tr>
+</table> 
+<div id="pager"></div>
+
+<% content_for :js do %>
+  <script type="text/javascript">
+    
+  $(function () {
+      $("#filterGrid").jqGrid({
+          url: "http://fplassistant-24038.use1.actionbox.io:3000/players.json",
+          datatype: "json",
+          colNames: ["First Name", "Last Name"],
+          colModel: [
+              { name: "first_name" },
+              { name: "second_name" }
+          ],
+          pager: "#pager",
+          rowNum: 10,
+          rowList: [10, 20, 30],
+          sortname: "invid",
+          sortorder: "desc",
+          viewrecords: true,
+          gridview: true,
+          autoencode: true,
+          loadonce: true,
+          caption: "My first grid"
+      }); 
+  }); 
+  </script>
+<% end %>

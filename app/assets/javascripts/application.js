@@ -15,3 +15,6 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require jquery.ui.all
+//= require i18n/grid.locale-en.js
+//= require jquery.jqGrid.min
+

@@ -3,10 +3,16 @@ class PlayersController < ApplicationController
   # GET /players.json
   def index
     @players = Player.all
-
+    
+    jsondata = {}
+    jsondata['total'] = "50"
+    jsondata['page'] = "1"
+    jsondata['records'] = @players.count.to_s
+    jsondata['rows'] = @players
+    
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @players }
+      format.json { render json: jsondata }
     end
   end
 
