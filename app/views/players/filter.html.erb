@@ -3,13 +3,21 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
-<table id="filterGrid">
-  <tr>
-    <td></td>
-  </tr>
-</table> 
-<div id="pager"></div>
-
+<div id="gridContainer">
+  <table id="filterGrid">
+    <tr>
+      <td></td>
+    </tr>
+  </table> 
+  <div id="pager"></div>
+</div>
+<% content_for :css do %>
+  <style>
+    
+    .ui-pg-input {width: auto !important; }
+    .ui-pg-selbox {width: auto !important; padding: 0 !important;}
+  </style>
+<% end %>
 <% content_for :js do %>
   <script type="text/javascript">
     
@@ -17,11 +25,15 @@
       $("#filterGrid").jqGrid({
           url: "http://fplassistant-24038.use1.actionbox.io:3000/players.json",
           datatype: "json",
-          colNames: ["First Name", "Last Name"],
+          colNames: ["First Name", "Last Name", "Position", "Team"],
           colModel: [
-              { name: "first_name" },
-              { name: "second_name" }
+            { name: "first_name" },
+            { name: "second_name" },
+            { name: "type_name", stype:'select', editoptions:{value:":All;Goalkeeper:Goalkeeper;Defender:Defender;Midfielder:Midfielder;Forward:Forward"} },
+            { name: "team_name", stype:'select', editoptions:{value:":All;Arsenal:Arsenal;Aston Villa:Aston Villa;Cardiff City:Cardiff City;Chelsea:Chelsea;Crystal Palace:Crystal Palace;Everton:Everton;Fulham:Fulham;Hull City:Hull City;Liverpool:Liverpool;Man City:Man City;Man Utd:Man Utd;Newcastle:Newcastle;Norwich:Norwich;Southampton:Southampton;Stoke City:Stoke City;Sunderland:Sunderland;Swansea:Swansea;Tottenham:Tottenham;West Brom:West Brom;West Ham:West Ham"}}
           ],
+          rownumbers: true,
+          height: 'auto',
           pager: "#pager",
           rowNum: 10,
           rowList: [10, 20, 30],
@@ -33,6 +45,7 @@
           loadonce: true,
           caption: "My first grid"
       }); 
+      jQuery("#filterGrid").jqGrid('filterToolbar');
   }); 
   </script>
 <% end %>
