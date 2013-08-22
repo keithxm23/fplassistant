@@ -25,12 +25,13 @@
       $("#filterGrid").jqGrid({
           url: "http://fplassistant-24038.use1.actionbox.io:3000/players.json",
           datatype: "json",
-          colNames: ["First Name", "Last Name", "Position", "Team"],
+          colNames: ["First Name", "Last Name", "Position", "Team", "Cost"],
           colModel: [
             { name: "first_name" },
             { name: "second_name" },
             { name: "type_name", stype:'select', editoptions:{value:":All;Goalkeeper:Goalkeeper;Defender:Defender;Midfielder:Midfielder;Forward:Forward"} },
-            { name: "team_name", stype:'select', editoptions:{value:":All;Arsenal:Arsenal;Aston Villa:Aston Villa;Cardiff City:Cardiff City;Chelsea:Chelsea;Crystal Palace:Crystal Palace;Everton:Everton;Fulham:Fulham;Hull City:Hull City;Liverpool:Liverpool;Man City:Man City;Man Utd:Man Utd;Newcastle:Newcastle;Norwich:Norwich;Southampton:Southampton;Stoke City:Stoke City;Sunderland:Sunderland;Swansea:Swansea;Tottenham:Tottenham;West Brom:West Brom;West Ham:West Ham"}}
+            { name: "team_name", stype:'select', editoptions:{value:":All;Arsenal:Arsenal;Aston Villa:Aston Villa;Cardiff City:Cardiff City;Chelsea:Chelsea;Crystal Palace:Crystal Palace;Everton:Everton;Fulham:Fulham;Hull City:Hull City;Liverpool:Liverpool;Man City:Man City;Man Utd:Man Utd;Newcastle:Newcastle;Norwich:Norwich;Southampton:Southampton;Stoke City:Stoke City;Sunderland:Sunderland;Swansea:Swansea;Tottenham:Tottenham;West Brom:West Brom;West Ham:West Ham"}},
+            { name: "now_cost_float" }
           ],
           rownumbers: true,
           height: 'auto',
