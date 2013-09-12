@@ -1,6 +1,10 @@
 Fpl::Application.routes.draw do
   match 'listjson' => 'players#listjson'
-  resources :players
+  resources :players do
+    collection do
+      get :filter
+    end
+  end
 
 
   # The priority is based upon order of creation:
