@@ -58,6 +58,7 @@ better teams.</p>
             },
             { name: "now_cost_float", template: numberTemplate }
           ],
+          toppager:true,
           rownumbers: true,
           height: 'auto',
           pager: "#pager",
@@ -70,16 +71,17 @@ better teams.</p>
           autoencode: true,
           loadonce: true,
           ignoreCase: true,
-          caption: "My first grid"
+          caption: "FPL Assitant Grid"
       }); 
       jQuery("#filterGrid").jqGrid('filterToolbar');
     
       //For docs on options set, refer: http://www.trirand.com/jqgridwiki/doku.php?id=wiki:singe_searching#options
-      jQuery("#filterGrid").jqGrid('navGrid','#pager',{del:false,add:false,edit:false},{},{},{},{multipleSearch:true,
+      jQuery("#filterGrid").jqGrid('navGrid','#pager',{del:false,add:false,edit:false,cloneToTop:true},{},{},{},{multipleSearch:true,
                                                                                                  width: 600,                                                                                          closeAfterSearch: true,
                                                                                                  top: 300,
                                                                                                  left: 100,
                                                                                                  searchOnEnter: true});
+    
     function playerPicFormatter(cellvalue, options, rowObject) 
     {
       var html = "<img src='"+cellvalue+"'/>";
