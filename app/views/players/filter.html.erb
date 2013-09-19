@@ -1,6 +1,9 @@
 <%- model_class = Player -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>Welcome to FPL Assistant</h1>
+  <p>This app is still a work-in-progress. The end goal is to have an app that provides
+insightful information to Fantasy Premier League Managers so as to enable them to pick
+better teams.</p>
 </div>
 
 <div id="gridContainer">
@@ -37,8 +40,9 @@
       $("#filterGrid").jqGrid({
           url: "/players.json",
           datatype: "json",
-          colNames: ["First Name", "Last Name", "Position", "Team", "Cost"],
+          colNames: ["Picture", "First Name", "Last Name", "Position", "", "Team", "Cost"],
           colModel: [
+            { name: "photo_mobile_url", width: 100, align: 'center', formatter: playerPicFormatter, search: false },
             { name: "first_name" },
             { name: "second_name" },
             { name: "type_name", width: 100, align: 'center',
@@ -46,7 +50,8 @@
              searchoptions:{sopt:['eq','ne'], value:":All;Goalkeeper:Goalkeeper;Defender:Defender;Midfielder:Midfielder;Forward:Forward"},
              editoptions:{value:":All;Goalkeeper:Goalkeeper;Defender:Defender;Midfielder:Midfielder;Forward:Forward"}
             },
-            { name: "team_name", width: 100, align: 'center', 
+            { name: "shirt_mobile_image_url", width: 15, align: 'center', formatter: playerPicFormatter, search: false },
+            { name: "team_name", width: 100, align: 'left', 
              stype:'select', edittype: 'select', 
              searchoptions:{sopt:['eq','ne'], value:":All;Arsenal:Arsenal;Aston Villa:Aston Villa;Cardiff City:Cardiff City;Chelsea:Chelsea;Crystal Palace:Crystal Palace;Everton:Everton;Fulham:Fulham;Hull City:Hull City;Liverpool:Liverpool;Man City:Man City;Man Utd:Man Utd;Newcastle:Newcastle;Norwich:Norwich;Southampton:Southampton;Stoke City:Stoke City;Sunderland:Sunderland;Swansea:Swansea;Tottenham:Tottenham;West Brom:West Brom;West Ham:West Ham"},
              editoptions:{value:":All;Arsenal:Arsenal;Aston Villa:Aston Villa;Cardiff City:Cardiff City;Chelsea:Chelsea;Crystal Palace:Crystal Palace;Everton:Everton;Fulham:Fulham;Hull City:Hull City;Liverpool:Liverpool;Man City:Man City;Man Utd:Man Utd;Newcastle:Newcastle;Norwich:Norwich;Southampton:Southampton;Stoke City:Stoke City;Sunderland:Sunderland;Swansea:Swansea;Tottenham:Tottenham;West Brom:West Brom;West Ham:West Ham"}
@@ -71,11 +76,15 @@
     
       //For docs on options set, refer: http://www.trirand.com/jqgridwiki/doku.php?id=wiki:singe_searching#options
       jQuery("#filterGrid").jqGrid('navGrid','#pager',{del:false,add:false,edit:false},{},{},{},{multipleSearch:true,
-                                                                                                 width: 600,
-                                                                                                 closeAfterSearch: true,
+                                                                                                 width: 600,                                                                                          closeAfterSearch: true,
                                                                                                  top: 300,
                                                                                                  left: 100,
                                                                                                  searchOnEnter: true});
+    function playerPicFormatter(cellvalue, options, rowObject) 
+    {
+      var html = "<img src='"+cellvalue+"'/>";
+      return html;
+    }
   }); 
   </script>
 <% end %>
