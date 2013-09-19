@@ -11,9 +11,9 @@
  *= require_self
  *= require_tree .
  *= require jquery.ui.all
-*= require jquery.ui.core
-*= require jquery.ui.theme
-*= require jquery.multiselect
-*= require jquery.multiselect.filter
+ *= require jquery.ui.core
+ *= require jquery.ui.theme
+ *= require jquery.multiselect
+ *= require jquery.multiselect.filter
  *= require ui.jqgrid.css
  */
