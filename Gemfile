@@ -13,7 +13,9 @@ gem 'rails', '3.2.13'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'jquery-rails'
   gem 'jquery-ui-rails'
+  gem 'jquery-multiselect-rails', :git => 'git://github.com/arojoal/jquery-multiselect-rails.git'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
@@ -21,7 +23,7 @@ group :assets do
   gem 'twitter-bootstrap-rails'
 end
 
-gem 'jquery-rails'
+
 gem 'pg'
 gem 'newrelic_rpm'
 
