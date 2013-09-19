@@ -1,5 +1,5 @@
 Fpl::Application.routes.draw do
-  match 'listjson' => 'players#listjson'
+  match 'updateallplayers' => 'players#updateallplayers'
   resources :players do
     collection do
       get :filter
