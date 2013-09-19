@@ -30,7 +30,7 @@ class PlayersController < ApplicationController
   # GET /players/new
   # GET /players/new.json
   def new
-    @player = Player.new
+    #@player = Player.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,13 +40,13 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
-    @player = Player.find(params[:id])
+    #@player = Player.find(params[:id])
   end
 
   # POST /players
   # POST /players.json
   def create
-    @player = Player.new(params[:player])
+    #@player = Player.new(params[:player])
 
     respond_to do |format|
       if @player.save
@@ -62,7 +62,7 @@ class PlayersController < ApplicationController
   # PUT /players/1
   # PUT /players/1.json
   def update
-    @player = Player.find(params[:id])
+    #@player = Player.find(params[:id])
 
     respond_to do |format|
       if @player.update_attributes(params[:player])
@@ -78,8 +78,8 @@ class PlayersController < ApplicationController
   # DELETE /players/1
   # DELETE /players/1.json
   def destroy
-    @player = Player.find(params[:id])
-    @player.destroy
+   # @player = Player.find(params[:id])
+    #@player.destroy
 
     respond_to do |format|
       format.html { redirect_to players_url }
@@ -90,8 +90,8 @@ class PlayersController < ApplicationController
   # GET listjson.json
   def updateallplayers
     
-    Player.delete_all
-    @players = JSON.parse( IO.read('gw5.json') )
+    #Player.delete_all
+    #@players = JSON.parse( IO.read('gw5.json') )
     @players.each do |p|
       tmp = p.except('fixtures','event_explain','season_history','fixture_history')
       tmp['elementid'] = p['id']
