@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130818184616) do
+ActiveRecord::Schema.define(:version => 20130920202240) do
 
   create_table "players", :force => true do |t|
     t.string   "first_name"
@@ -42,11 +42,11 @@ ActiveRecord::Schema.define(:version => 20130818184616) do
     t.string   "team_name"
     t.string   "status"
     t.date     "added"
-    t.integer  "form"
+    t.float    "form"
     t.text     "shirt_mobile_image_url"
     t.string   "current_fixture"
     t.integer  "now_cost"
-    t.integer  "points_per_game"
+    t.float    "points_per_game"
     t.integer  "transfers_in"
     t.text     "news"
     t.integer  "original_cost"
