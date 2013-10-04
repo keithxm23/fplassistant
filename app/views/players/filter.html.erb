@@ -240,7 +240,7 @@ better teams.</p>
       $("#filterGrid").jqGrid({
           url: "/players.json",
           datatype: "json",
-          colNames: ["Picture", "First Name", "Last Name", "Position", "", "Team", "Cost", "Form", "Total Pts", "Points Per Game"],
+        colNames: ["Picture", "First Name", "Last Name", "Position", "", "Team", "Cost", "Form", "Total Pts", "Pts/game"],
           colModel: [
             { name: "photo_mobile_url", width: 50, align: 'center', formatter: playerPicFormatter, search: false },
             { name: "first_name" },
