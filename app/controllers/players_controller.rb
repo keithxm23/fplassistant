@@ -91,7 +91,7 @@ class PlayersController < ApplicationController
   def updateallplayers
     
     Player.delete_all
-    @players = JSON.parse( IO.read('gw5.json') )
+    @players = JSON.parse( IO.read('data.json') )
     @players.each do |p|
       tmp = p.except('fixtures','event_explain','season_history','fixture_history')
       tmp['elementid'] = p['id']
