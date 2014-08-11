@@ -17,7 +17,14 @@ better teams.</p>
 <% content_for :css do %>
   <style>
     .ui-pg-input {width: auto !important; }
-    
+    .ui-jqgrid tr.jqgrow td {font-size:1.0em}
+    .ui-jqgrid tr.ui-search-toolbar td.ui-search-oper {font-size:0.6em;}
+    .ui-jqgrid tr.ui-search-toolbar td.ui-search-input input {width: 30px !important;}
+    #gs_next_fixture {width: auto !important;}
+    #gs_current_fixture {width: auto !important;}
+    #gs_first_name  {width: auto !important;}
+    #gs_second_name  {width: auto !important;}
+    .searchFilter input {width:50px !important;}
     .ui-pg-selbox {
       width: auto !important; 
       padding: 0 !important;
@@ -247,14 +254,14 @@ better teams.</p>
           ],
           colModel: [
             { name: "photo", width: 50, align: 'center', formatter: playerPicFormatter, search: false, hidden:true },
-            { name: "first_name", hidden: true},
-            { name: "second_name" },
-            { name: "type_name", width: 100, align: 'center',
+            { name: "first_name", hidden: true, width:120},
+            { name: "second_name", width: 120 },
+            { name: "type_name", width: 70, align: 'center',
              stype:'select', edittype: 'select', 
              searchoptions:{sopt:['eq','ne'], value:":All;Goalkeeper:Goalkeeper;Defender:Defender;Midfielder:Midfielder;Forward:Forward"},
              editoptions:{value:":All;Goalkeeper:Goalkeeper;Defender:Defender;Midfielder:Midfielder;Forward:Forward"}
             },
-            { name: "team_name", width: 100, align: 'left', 
+            { name: "team_name", width: 85, align: 'left', 
              stype:'select', edittype: 'select', 
              searchoptions:{sopt:['eq','ne'], value:":All;Arsenal:Arsenal;Aston Villa:Aston Villa;Leicester:Leicester;Chelsea:Chelsea;Crystal Palace:Crystal Palace;Everton:Everton;QPR:QPR;Hull City:Hull City;Liverpool:Liverpool;Man City:Man City;Man Utd:Man Utd;Newcastle:Newcastle;Burnley:Burnley;Southampton:Southampton;Stoke City:Stoke City;Sunderland:Sunderland;Swansea:Swansea;Tottenham:Tottenham;West Brom:West Brom;West Ham:West Ham"},
              editoptions:{value:":All;Arsenal:Arsenal;Aston Villa:Aston Villa;Leicester:Leicester;Chelsea:Chelsea;Crystal Palace:Crystal Palace;Everton:Everton;QPR:QPR;Hull City:Hull City;Liverpool:Liverpool;Man City:Man City;Man Utd:Man Utd;Newcastle:Newcastle;Burnley:Burnley;Southampton:Southampton;Stoke City:Stoke City;Sunderland:Sunderland;Swansea:Swansea;Tottenham:Tottenham;West Brom:West Brom;West Ham:West Ham"}
@@ -265,7 +272,7 @@ better teams.</p>
             { name: "points_per_game", template: numberTemplate, hidden: true, 'editrules': {edithidden: true}},
             { name: "selected_by", template: numberTemplate},
             { name: "current_fixture", hidden: true},
-            { name: "next_fixture" },
+            { name: "next_fixture", width:104 },
             { name: "minutes", template: IntTemplate },
             { name: "goals_scored", template: IntTemplate },
             { name: "assists", template: IntTemplate },
@@ -295,13 +302,15 @@ better teams.</p>
           loadonce: true,
           ignoreCase: true,
           sortable: true,
+          searchOperators: true,
+          /*
           onSelectRow: function (id) {
             $(this).jqGrid('viewGridRow', id, {caption: "Player Details"});
                 },
-
+*/
           caption: "FPL Assitant Grid"
       }); 
-      jQuery("#filterGrid").jqGrid('filterToolbar');
+  jQuery("#filterGrid").jqGrid('filterToolbar',{searchOperators : true});
     
       //For docs on options set, refer: http://www.trirand.com/jqgridwiki/doku.php?id=wiki:singe_searching#options
       jQuery("#filterGrid").jqGrid('navGrid','#pager',{del:false,add:false,edit:false,cloneToTop:true},{},{},{},{multipleSearch:true,
