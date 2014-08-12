@@ -1,11 +1,38 @@
 <%- model_class = Player -%>
 <div class="page-header">
-  <h1>Welcome to FPL Assistant</h1>
-  <p>This app is still a work-in-progress. The end goal is to have an app that provides
-insightful information to Fantasy Premier League Managers so as to enable them to pick
-better teams.</p>
+  <h1>FPL Assistant</h1>
+  <p>This data-grid is meant to enable fantasypremierleague managers to pick better teams
+  by providing better filtering/sorting options than the stock fantasypremierleague.com website</p>
 </div>
 
+<p>
+<i>Data Last Updated On: Mon Aug 11 20:03:19 EDT 2014</i> 
+</p>
+
+<p>
+Legend: 
+<b>&pound:</b> Cost,
+<b>F:</b> Form,
+<b>TS:</b> Total Score,
+<b>PPG:</b> Points Per Game,
+<b>TSB:</b> Total Selected by %,
+<b>MP:</b> Minutes Played,
+<b>GS:</b> Goals Scored,
+<b>A:</b> Assists,
+<b>CS:</b> Clean Sheets,
+<b>GC:</b> Goals Conceded,
+<b>OG:</b> Own Goals,
+<b>PS:</b> Penalties Saved,
+<b>PM:</b> Penalties Missed,
+<b>YC:</b> Yellow Cards,
+<b>RC:</b> Red Cards,
+<b>S:</b> Saves,
+<b>B:</b> Bonus,
+<b>ESP:</b> EA Sports PPI,
+<b>BPS:</b> Bonus Points System
+
+
+</p>
 <div id="gridContainer">
   <table id="filterGrid">
     <tr>
@@ -14,6 +41,7 @@ better teams.</p>
   </table> 
   <div id="pager"></div>
 </div>
+
 <% content_for :css do %>
   <style>
     .ui-pg-input {width: auto !important; }
@@ -248,7 +276,7 @@ better teams.</p>
           url: "/players.json",
           datatype: "json",
           colNames: ["Picture", "First Name", "Last Name", "Position", "Team", 
-           "&pound;", "F", "TS", "PPG", "TSB", "Curr. fix.", "Next fix.", "MP",
+           "&pound;", "F", "TS", "PPG", "TSB", "Current fixture", "Next fixture", "MP",
            "GS", "A","CS", "GC", "OG", "PS", "PM", "YC", "RC", "S", "B", "ESP",
            "BPS"
           ],
