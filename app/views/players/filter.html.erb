@@ -2,8 +2,12 @@
 <div class="page-header">
   <h1>FPL Assistant</h1>
   <p>This data-grid is meant to enable fantasypremierleague managers to pick better teams
-  by providing better filtering/sorting options than the stock fantasypremierleague.com website</p>
+  by providing better filtering/sorting options than the stock fantasypremierleague.com website. Will add enhancements as and when I get the time. Cheers!</p>
 </div>
+
+<p>Have a look at the <u><%= link_to "How to", :controller => :players, :action => :howto %></u> page
+to quickly learn how to apply multiple filters and sort results. For instance, you could search for 'All "midfielders" from "Arsenal" who cost more than "5.0" but received less than "2" yellow cards and scored more than "100" points.</p>
+<br/>
 
 <p>
 <i>Data Last Updated On: Mon Aug 11 20:03:19 EDT 2014</i> 
@@ -40,26 +44,6 @@ Legend:
     </tr>
   </table> 
   <div id="pager"></div>
-</div>
-
-<div id="howto">
-  <h2>How to use this grid</h2>
-
-  <h3>Main buttons</h3>
-  <%= image_tag("buttons.png") %>
-
-  <h3>Query</h3>
-  <%= image_tag("query.png") %>
-
-  <h3>Toolbar</h3>
-  <%= image_tag("toolbar.png") %>
-
-  <h3>Show/Hide Columns</h3>
-  <%= image_tag("columns.png") %>
-
-  <h3>Pagination</h3>
-  <%= image_tag("pagination.ong") %> 
-
 </div>
 
 <% content_for :css do %>

@@ -46,9 +46,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="http://www.fplassistant.com/">FPL Assistant</a>
+          <a class="brand" href="/">FPL Assistant</a>
           <div class="container nav-collapse">
             <ul class="nav">
+                <li><%= link_to "Home", :controller => :players, :action => :filter %>
+                <li><%= link_to "How to", :controller => :players, :action => :howto %>
                 <li><%= link_to "keithxm23", "http://www.keithxm23.com"  %></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -71,6 +73,9 @@
         <br/><br/>
         <p>Disclaimer: I do not claim ownership for any of this data. The data is entirely the property of www.fantasypremierleague.com
         <br/>
+        <p>
+        Feel free to drop me an email at keithxm23 (at) gmail (dot) com if you're looking for help or if you have any suggestions. Cheers!
+        </p>
         <center>COYG !!! <%=image_tag("arsenal_icon.png")%></center>
         <br/>
         <!-- hitwebcounter Code START -->

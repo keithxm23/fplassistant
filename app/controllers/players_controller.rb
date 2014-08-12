@@ -26,7 +26,7 @@ class PlayersController < ApplicationController
       format.json { render json: @player }
     end
   end
-
+=begin
   # GET /players/new
   # GET /players/new.json
   def new
@@ -104,10 +104,15 @@ class PlayersController < ApplicationController
       format.json { render json: @players }
     end
   end
+=end
   
   def filter    
     respond_to do |format|
       format.html 
     end
   end
+
+  def howto
+  end
+
 end
