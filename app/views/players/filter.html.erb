@@ -56,6 +56,7 @@ Legend:
     #gs_current_fixture {width: auto !important;}
     #gs_first_name  {width: auto !important;}
     #gs_second_name  {width: auto !important;}
+    #gs_web_name  {width: auto !important;}
     .searchFilter input {width:50px !important;}
     .ui-pg-selbox {
       width: auto !important; 
@@ -279,19 +280,20 @@ Legend:
       $("#filterGrid").jqGrid({
           url: "/players.json",
           datatype: "json",
-          colNames: ["Picture", "First Name", "Last Name", "Position", "Team", 
+          colNames: ["Picture", "Name", "First Name", "Last Name", "Position", "Team", 
            "&pound;", "F", "TS", "PPG", "TSB", "Current fixture", "Next fixture", "MP",
            "GS", "A","CS", "GC", "OG", "PS", "PM", "YC", "RC", "S", "B", "ESP",
            "BPS"
           ],
           colModel: [
-            { name: "photo", width: 50, align: 'center', formatter: playerPicFormatter, search: false, hidden:true },
-            { name: "first_name", hidden: true, width:120},
-            { name: "second_name", width: 120 },
+            { name: "photo", width: 50, align: 'center', formatter: playerPicFormatter, search: false},
+            { name: "web_name", width: 120},
+            { name: "first_name", hidden: true, width: 120},
+            { name: "second_name", hidden: true, width: 120 },
             { name: "type_name", width: 70, align: 'center',
              stype:'select', edittype: 'select', 
-             searchoptions:{sopt:['eq','ne'], value:":All;Goalkeeper:Goalkeeper;Defender:Defender;Midfielder:Midfielder;Forward:Forward"},
-             editoptions:{value:":All;Goalkeeper:Goalkeeper;Defender:Defender;Midfielder:Midfielder;Forward:Forward"}
+             searchoptions:{sopt:['eq','ne'], value:":All;Goalkeeper:GK;Defender:DEF;Midfielder:MID;Forward:FWD"},
+             editoptions:{value:":All;Goalkeeper:GK;Defender:DEF;Midfielder:MID;Forward:FWD"}
             },
             { name: "team_name", width: 85, align: 'left', 
              stype:'select', edittype: 'select', 
@@ -345,7 +347,7 @@ Legend:
   jQuery("#filterGrid").jqGrid('filterToolbar',{searchOperators : true});
     
       //For docs on options set, refer: http://www.trirand.com/jqgridwiki/doku.php?id=wiki:singe_searching#options
-      jQuery("#filterGrid").jqGrid('navGrid','#pager',{del:false,add:false,edit:false,cloneToTop:true},{},{},{},{multipleSearch:true,
+      jQuery("#filterGrid").jqGrid('navGrid','#pager',{del:false,add:false,edit:false,cloneToTop:true, refreshtext:'Reset', searchtext:'Query'},{},{},{},{multipleSearch:true,
                                                                                                  width: 600,                                                                                          closeAfterSearch: true,
                                                                                                  top: 300,
                                                                                                  left: 100,
@@ -372,7 +374,7 @@ $.extend(true, $.jgrid.col, {
 });
 
 jQuery("#filterGrid").jqGrid('navButtonAdd', '#pager', {
-    caption: "",
+    caption: "Show/hide columns",
     buttonicon: "ui-icon-calculator",
     title: "Choose columns",
     onClickButton: function () {
@@ -381,7 +383,7 @@ jQuery("#filterGrid").jqGrid('navButtonAdd', '#pager', {
 });
 
 jQuery("#filterGrid").jqGrid('navButtonAdd', '#filterGrid_toppager', {
-    caption: "",
+    caption: "Show/hide columns",
     buttonicon: "ui-icon-calculator",
     title: "Choose columns",
     onClickButton: function () {
