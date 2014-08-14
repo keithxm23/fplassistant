@@ -1,13 +1,12 @@
 Wed Aug 13 18:52:30 EDT 2014
 - Started a changelog.
-- Using short-forms for player positions and teamnames so as to have shorter
-width columns
+- Using short-forms for player positions and teamnames so as to have shorter width columns
 - Added a favicon. Need to do a better one though.
 - Thinified 'Next Fixture' column
 - Added 'Status' column
-- Added 'News' column (as hidden) and added news data to tooltip for 'Status'
-cells for convenience so that it can be seen on mouse-hover.
+- Added 'News' column (as hidden) and added news data to tooltip for 'Status' cells for convenience so that it can be seen on mouse-hover.
 - Added 'Next 3 fixtures' column
 
 Thu Aug 14 11:38:53 EDT 2014
 - Added a 'Bookmark this page' button
+- Hiding 'Picture' column by default and reduced grid row heights.

@@ -79,8 +79,9 @@ Statuses:
     
     .searchFilter select, input {
       width: auto !important; 
-      
     }
+    
+    .ui-jqgrid tr.jqgrow td { height: 10px; padding-top: 0px;}
   </style>
 <link rel="stylesheet" type="text/css" href="http://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.3.1/plugin/ui.multiselect.css" />
 
@@ -322,7 +323,7 @@ Statuses:
            "BPS"
           ],
           colModel: [
-            { name: "photo", width: 50, align: 'center', formatter: playerPicFormatter, search: false},
+            { name: "photo", width: 50, align: 'center', formatter: playerPicFormatter, search: false, hidden:true},
             { name: "web_name", width: 100},
             { name: "first_name", hidden: true, width: 120},
             { name: "second_name", hidden: true, width: 120 },
