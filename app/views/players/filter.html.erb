@@ -44,6 +44,8 @@ Statuses:
 <b>INJ:</b> Injured
 <b>LOAN:</b> On Loan
 <b>SPND:</b> Suspended
+<br/>
+<i>Hover over status of unavailable players to get futher details.</i>
 
 
 </p>
@@ -67,6 +69,7 @@ Statuses:
     #gs_first_name  {width: auto !important;}
     #gs_second_name  {width: auto !important;}
     #gs_web_name  {width: auto !important;}
+    #gs_news  {width: auto !important;}
     .searchFilter input {width:50px !important;}
     .ui-pg-selbox {
       width: auto !important; 
@@ -313,7 +316,7 @@ Statuses:
           url: "/players.json",
           datatype: "json",
           colNames: ["Picture", "Name", "First Name", "Last Name", "Position", "Team", "Status",
-           "&pound;", "F", "TS", "PPG", "TSB", "CF", "NF", "MP",
+           "News", "&pound;", "F", "TS", "PPG", "TSB", "CF", "NF", "MP",
            "GS", "A","CS", "GC", "OG", "PS", "PM", "YC", "RC", "S", "B", "ESP",
            "BPS"
           ],
@@ -336,7 +339,11 @@ Statuses:
               stype:'select', edittype: 'select',
                     searchoptions:{sopt:['eq','ne'], value:":All;a:Avaliable;d:Maybe Injured;i:Injured;n:On Loan;s:Suspended"},
                     editoptions:{value:":All;a:Avaliable;d:Maybe Injured;i:Injured;n:On Loan;s:Suspended"},
+                    cellattr: function (rowId, val, rawObject, cm, rdata) {
+                      return 'title="' + rawObject.news  + '"';
+                    }
             },
+            { name: "news", hidden: true},
             { name: "now_cost_float", template: numberTemplate },
             { name: "form", template: numberTemplate, hidden: true, 'editrules': {edithidden: true}},
             { name: "total_points", template: IntTemplate },
