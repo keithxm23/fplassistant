@@ -6,6 +6,7 @@ namespace :players do
     players.each do |p|
       tmp = p.except('fixtures','event_explain','season_history','fixture_history')
       tmp['elementid'] = p['id']
+      tmp['summary'] =  p['fixtures']['summary'].map{|s| s[1].delete('()').sub(" ", "-")}.join(", ")
       Player.create(tmp.except('id'))
     end
   end

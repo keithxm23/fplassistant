@@ -66,6 +66,7 @@ Statuses:
     .ui-jqgrid tr.ui-search-toolbar td.ui-search-input input {width: 30px !important;}
     #gs_next_fixture {width: auto !important;}
     #gs_current_fixture {width: auto !important;}
+    #gs_summary {width: auto !important;}
     #gs_first_name  {width: auto !important;}
     #gs_second_name  {width: auto !important;}
     #gs_web_name  {width: auto !important;}
@@ -316,7 +317,7 @@ Statuses:
           url: "/players.json",
           datatype: "json",
           colNames: ["Picture", "Name", "First Name", "Last Name", "Position", "Team", "Status",
-           "News", "&pound;", "F", "TS", "PPG", "TSB", "CF", "NF", "MP",
+           "News", "&pound;", "F", "TS", "PPG", "TSB", "CF", "NF","Next 3 Fixtures", "MP",
            "GS", "A","CS", "GC", "OG", "PS", "PM", "YC", "RC", "S", "B", "ESP",
            "BPS"
           ],
@@ -350,7 +351,8 @@ Statuses:
             { name: "points_per_game", template: numberTemplate, hidden: true, 'editrules': {edithidden: true}},
             { name: "selected_by", template: numberTemplate},
             { name: "current_fixture", hidden: true},
-            { name: "next_fixture", width:50, align:'center', formatter: nextFixtureFormatter },
+            { name: "next_fixture", width:50, align:'center', formatter: nextFixtureFormatter, hidden:true },
+            { name: "summary", align:'center', width:120},
             { name: "minutes", template: IntTemplate },
             { name: "goals_scored", template: IntTemplate },
             { name: "assists", template: IntTemplate },

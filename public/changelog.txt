@@ -7,4 +7,4 @@ width columns
 - Added 'Status' column
 - Added 'News' column (as hidden) and added news data to tooltip for 'Status'
 cells for convenience so that it can be seen on mouse-hover.
-
+- Added 'Next 3 fixtures' column
