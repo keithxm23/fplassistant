@@ -3,3 +3,5 @@ Wed Aug 13 18:52:30 EDT 2014
 - Using short-forms for player positions and teamnames so as to have shorter
 width columns
 - Added a favicon. Need to do a better one though.
+- Thinified 'Next Fixture' column
+- Added 'Status' column
