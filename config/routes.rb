@@ -1,5 +1,4 @@
 Fpl::Application.routes.draw do
-  #match 'updateallplayers' => 'players#updateallplayers'
   match 'howto' => 'players#howto'
   resources :players do
     collection do
