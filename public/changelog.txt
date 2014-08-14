@@ -8,3 +8,6 @@ width columns
 - Added 'News' column (as hidden) and added news data to tooltip for 'Status'
 cells for convenience so that it can be seen on mouse-hover.
 - Added 'Next 3 fixtures' column
+
+Thu Aug 14 11:38:53 EDT 2014
+- Added a 'Bookmark this page' button
