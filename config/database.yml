@@ -22,6 +22,15 @@ development:
   host: <%= ENV['FPL_APP_DEV_HOST'] %>
   port: <%= ENV['FPL_APP_DEV_PORT'] %>
 
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV['FPL2_APP_DATABASE'] %>
+  pool: 5
+  username: <%= ENV['FPL2_APP_USER'] %>
+  password: <%= ENV['FPL2_APP_PASSWORD'] %>
+  host: <%= ENV['FPL2_APP_HOST'] %>
+  port: <%= ENV['FPL2_APP_PORT'] %>
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
@@ -44,14 +53,6 @@ test:
   adapter: postgresql
   encoding: unicode
   database: fpl_test
-  pool: 5
-  username: fpl
-  password:
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: fpl_production
   pool: 5
   username: fpl
   password:
