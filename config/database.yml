@@ -56,3 +56,12 @@ test:
   pool: 5
   username: fpl
   password:
+
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: fpl_production
+  pool: 5
+  username: fpl
+  password:
